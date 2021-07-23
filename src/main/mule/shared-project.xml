@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="ec737a57-9d6e-463b-bc01-833c6fe9bad3" >
+		<http:listener-connection host="0.0.0.0" port="8088" />
+	</http:listener-config>
+	<flow name="shared-projectFlow" doc:id="d6ca0c43-caa8-4cee-af01-453a254928a7" >
+		<http:listener doc:name="Listener" doc:id="87ee86d1-1fad-4bc1-ac3d-62b88dc73460" config-ref="HTTP_Listener_config" path="/github"/>
+		<logger level="INFO" doc:name="this project is for github class" doc:id="e1ff7616-f9cf-4299-9866-364dce32927c" message="this project is for github class"/>
+		<set-payload value="github class" doc:name="github class" doc:id="32c305ae-d8f2-4c76-976d-bc283be802f7" />
+	</flow>
+</mule>
